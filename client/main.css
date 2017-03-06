@@ -1,0 +1,64 @@
+/* CSS declarations go here */
+body {
+  font-family: sans-serif;
+  background-color: #e5e5e5;
+  background-attachment: fixed;
+ 
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+ 
+  padding: 0;
+  margin: 0;
+ 
+  font-size: 14px;
+}
+ 
+#render-target {
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 100%;
+  background: #d0d0ee;
+}
+ 
+#login-buttons {
+  display: block;
+}
+ 
+h1 {
+  padding: 20px 15px 15px 15px;
+  font-size: 3em;
+  margin: 0;
+  margin-bottom: 10px;
+  display: inline-block;
+  margin-right: 1em;
+  background: transparent;
+}
+ 
+.new-message input {
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 30px;
+  background: transparent;
+  width: 90%;
+  font-size: 1.5em;
+}
+
+#list {
+  position: relative;
+  margin-top: 20px;
+  padding: 2px;
+  max-height: 800px;
+  overflow: auto;
+  list-style: none;
+}
+ 
+.message {
+  position: relative;
+  background: white;
+  list-style: none;
+  margin: 3px;
+  padding: 8px;
+}
