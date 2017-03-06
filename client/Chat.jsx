@@ -29,7 +29,8 @@ class TextBox extends Component {
     this.state = { text: '' }
   }
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
+    e.preventDefault()
     const username = Meteor.user() ? Meteor.user().username : 'Anonymous'
     insertMessage(this.state.text, username)
     this.setState({ text: '' })
