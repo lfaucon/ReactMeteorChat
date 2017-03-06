@@ -1,11 +1,14 @@
 import React from 'react';
 
-import Chat from './Chat.jsx';
-import AccountsUIWrapper from './AccountsUIWrapper.jsx';
+import AccountsUIWrapper from './AccountsUIWrapper';
+import ChatInput from './ChatInput';
+import MessageList from './MessageList';
 
-export default () => 
+export default () => (
   <div>
     <h1>React Meteor Chat</h1>
     <AccountsUIWrapper />
-    <Chat />
+    <MessageList />
+    <ChatInput />
   </div>
+);
