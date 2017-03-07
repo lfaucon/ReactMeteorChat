@@ -3,8 +3,6 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { Messages } from '../api/messages.js';
 
-import ReactList from 'react-list';
-
 const Message = ({ message }) =>
   <li className='message'>
     <p><b>{message.username}</b>: {message.text}</p>
