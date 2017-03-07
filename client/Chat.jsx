@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import { Messages, insertMessage } from '../api/messages.js';
+import { Messages } from '../api/messages.js';
 
 import ReactList from 'react-list';
 
@@ -11,9 +11,12 @@ const Message = ({ message }) =>
   </li>
 
 const MessageList = createContainer(
-  () => ({ 
-    messages: Messages.find({}, { sort: { createdAt: -1 }, limit: 8 }).fetch()
-  }),
+  () => {
+    Meteor.subscribe('messages');
+    return ({ 
+      messages: Messages.find({}, { sort: { createdAt: -1 }, limit: 8 }).fetch()
+    })
+  },
   ({ messages }) => (
     <ul id='list'>
       {messages.reverse().map(message => 
@@ -31,8 +34,7 @@ class TextBox extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const username = Meteor.user() ? Meteor.user().username : 'Anonymous'
-    insertMessage(this.state.text, username)
+    Meteor.call('message.insert', this.state.text)
     this.setState({ text: '' })
   }
 
@@ -42,10 +44,7 @@ class TextBox extends Component {
 
   render() { 
     return (
-      <form
-        className="new-message"
-        onSubmit={this.handleSubmit} 
-      >
+      <form className="new-message" onSubmit={this.handleSubmit}>
         <input
           type="text"
           onChange={this.handleChange}
