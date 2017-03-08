@@ -1,14 +1,15 @@
+// @flow
 import React, { Component } from 'react';
-import { Messages } from '../api/messages.js';
+import { Messages, type MessagesT } from '../api/messages.js';
 import { createContainer } from 'meteor/react-meteor-data';
 
-const Message = ({ message }) => (
+const Message = ({ message }: { message: MessagesT }) => (
   <li className="message">
-    <p><b>{message.username}</b>: {message.text}</p>
+    <p><b>{message.name}</b>: {message.text}</p>
   </li>
 );
 
-const MessageList = ({ messages }) => (
+const MessageList = ({ messages }: { messages: Array<MessagesT> }) => (
   <ul id="list">
     {messages
       .reverse()
